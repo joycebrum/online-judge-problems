@@ -18,26 +18,28 @@ team_in_queue = {}
 queue_per_team = {}
 
 team_being_removed = ''
-elements_to_remove = 0
 
 def clear_structures():
-    global elements_to_remove, team_being_removed
+    global team_being_removed
     teams_q.clear()
     teams_description.clear()
     team_in_queue.clear()
     queue_per_team.clear()
     
-    elements_to_remove = 0
     team_being_removed = ''
+    
 
 def dequeue():
-    global elements_to_remove, team_being_removed
-    if elements_to_remove == 0:
-        team_being_removed = teams_q.popleft()
-        team_in_queue[team_being_removed] = False
-        elements_to_remove = len(queue_per_team[team_being_removed])
+    global team_being_removed
+    if not team_being_removed:
+        team_being_removed = teams_q[0]
     element = queue_per_team[team_being_removed].popleft()
-    elements_to_remove -= 1
+
+    if not queue_per_team[team_being_removed]:
+        if len(teams_q)>0:
+            team_in_queue[team_being_removed] = False
+            teams_q.popleft()
+        team_being_removed = ''
     return element
 
 def enqueue(element, team):
