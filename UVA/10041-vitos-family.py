@@ -1,5 +1,6 @@
 import sys
 #------------------------ não mandar essa parte
+# TIME LIMIT EXCEED!!! NÃO ESTA PASSANDO
 # https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=342
 """orig_stdout = sys.stdout
 f = open('out.txt', 'w')
