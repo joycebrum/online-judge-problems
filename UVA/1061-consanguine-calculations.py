@@ -1,20 +1,3 @@
-import sys
-
-
-#------------------------ não mandar essa parte
-"""
-problema https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=3502
-"""
-orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f
-orig_stdin = sys.stdin
-fi = open('in.txt', 'r')
-sys.stdin = fi
-
-
-#------------------------
-
 def remove_if_contains_char(results, char):
     return list(filter(lambda obj: char not in obj, results))
             
@@ -82,14 +65,3 @@ if __name__ == '__main__':
             result = get_string(get_possible_father(blood[0], blood[2]))
             print('Case', str(i) + ':', blood[0], result, blood[2])
 
-#------------------------ não mandar essa parte
-""" """        
-sys.stdout = orig_stdout
-f.close()
-
-sys.stdin = orig_stdin
-fi.close
-
-
-
-#------------------------

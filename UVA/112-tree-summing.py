@@ -1,18 +1,4 @@
-import sys
 from collections import deque 
-
-
-#------------------------ não mandar essa parte
-# https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=3&page=show_problem&problem=56
-""" 
-orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f"""
-
-orig_stdin = sys.stdin
-fi = open('in.txt', 'r')
-sys.stdin = fi
-#------------------------
 
 class NodoLista:
     """Esta classe representa um nodo de uma lista encadeada."""
@@ -68,13 +54,3 @@ if __name__ == '__main__':
         root, pos = NodoLista(get_number(tree, 1))
         lista.head = root
         process_entry(tree, pos, root)
-        
-#------------------------ não mandar essa parte
-""" 
-sys.stdout = orig_stdout
-f.close()
-"""
-
-sys.stdin = orig_stdin
-fi.close
-#------------------------

@@ -1,14 +1,3 @@
-import sys
-
-
-#------------------------ não mandar essa parte
-# https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=1587
-
-orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f
-#------------------------
-
 def get_value(card):
     if card[0] >= '2' and card[0] <= '9':
         return int(card[0])
@@ -40,8 +29,4 @@ if __name__ == '__main__':
         print('Case', str(i+1) + ':', new_pile[-y])
         i = i + 1
 
-#------------------------ não mandar essa parte        
-sys.stdout = orig_stdout
-f.close()
-#------------------------
 

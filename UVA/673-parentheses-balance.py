@@ -1,5 +1,3 @@
-import sys
-
 def balance(string):
     string = string.replace(" ", '')
     previousLen = len(string)
@@ -15,13 +13,6 @@ def balance(string):
         previousLen = len(string)
     return "Yes"
 
-#------------------------ não mandar essa parte
-#https://onlinejudge.org/external/6/673.pdf
-orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f
-#------------------------
-
 if __name__ == '__main__':
     
     n = int(sys.stdin.readline())
@@ -31,7 +22,3 @@ if __name__ == '__main__':
         print(balance(entry))
         i = i + 1
 
-#------------------------ não mandar essa parte        
-sys.stdout = orig_stdout
-f.close()
-#------------------------

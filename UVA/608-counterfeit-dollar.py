@@ -1,18 +1,3 @@
-import sys
-
-
-#------------------------ não mandar essa parte
-#https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=549
-orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f
-orig_stdin = sys.stdin
-fi = open('in.txt', 'r')
-sys.stdin = fi
-
-
-#------------------------
-
 not_defined = "NA"
 coin_range = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
 
@@ -96,14 +81,4 @@ if __name__ == '__main__':
         else:
             print('Não foi possível descobrir.')
 
-#------------------------ não mandar essa parte
-""" """     
-sys.stdout = orig_stdout
-f.close()
 
-sys.stdin = orig_stdin
-fi.close
-
-
-
-#------------------------

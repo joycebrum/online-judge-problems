@@ -1,15 +1,4 @@
-import sys
 from collections import deque
-
-#------------------------ não mandar essa parte
-orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f
-
-orig_stdin = sys.stdin
-fi = open('in.txt', 'r')
-sys.stdin = fi
-#------------------------
 
 def can_permutate(blocks, order):
     station = deque()
@@ -35,13 +24,3 @@ if __name__ == '__main__':
             can = can_permutate(blocks, order)
             if can: print('Yes')
             else: print('No')
-
-#------------------------ não mandar essa parte
-        
-sys.stdout = orig_stdout
-f.close()
-
-
-sys.stdin = orig_stdin
-fi.close
-#------------------------

@@ -1,17 +1,3 @@
-import sys
-
-
-#------------------------ não mandar essa parte
-
-orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f
-
-orig_stdin = sys.stdin
-fi = open('in.txt', 'r')
-sys.stdin = fi
-
-#------------------------            
 def is_palindrome(string):
     if string[::-1] == string:
         return True
@@ -34,13 +20,3 @@ if __name__ == '__main__':
         number = input()
         iterats, palindrome = reverse_and_add(number)
         print(iterats, palindrome)
-
-#------------------------ não mandar essa parte
-
-sys.stdout = orig_stdout
-f.close()
-
-sys.stdin = orig_stdin
-fi.close
-
-#------------------------

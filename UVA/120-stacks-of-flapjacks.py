@@ -1,18 +1,3 @@
-import sys
-
-
-#------------------------ não mandar essa parte
-# https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=3&page=show_problem&problem=56
-""" """
-orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f
-
-orig_stdin = sys.stdin
-fi = open('in.txt', 'r')
-sys.stdin = fi
-#------------------------
-
 def list_to_str(list): 
     s = [str(i) for i in list] 
       
@@ -57,15 +42,3 @@ if __name__ == '__main__':
         print(init_pile)
         res, position = sort_pile(pile)
         print(list_to_str(position))
-        #print(res, position)
-        
-
-#------------------------ não mandar essa parte
-"""      """  
-sys.stdout = orig_stdout
-f.close()
-
-
-sys.stdin = orig_stdin
-fi.close
-#------------------------

@@ -1,17 +1,5 @@
-import sys
 from collections import deque 
 
-
-#------------------------ não mandar essa parte
-#https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=27&page=show_problem&problem=2619
-""" """
-orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f
-orig_stdin = sys.stdin
-fi = open('in.txt', 'r')
-sys.stdin = fi
-#------------------------
 teams_q = deque()
 teams_description = {}
 team_in_queue = {}
@@ -75,13 +63,4 @@ if __name__ == '__main__':
             if 'DEQUEUE' in command:
                 element = dequeue()
                 print(element)
-            
-#------------------------ não mandar essa parte      
-""" """
-sys.stdout = orig_stdout
-f.close()
-
-sys.stdin = orig_stdin
-fi.close
-#------------------------
 

@@ -1,19 +1,3 @@
-import sys
-
-#------------------------ não mandar essa parte
-# https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=3&page=show_problem&problem=56
-
-orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f
-
-
-orig_stdin = sys.stdin
-fi = open('in.txt', 'r')
-sys.stdin = fi
-
-#------------------------
-
 def add(number1, number2):
     decimal_part, carry = add_decimal(number1[1], number2[1])
     int_part, carry = add_int(number1[0], number2[0], carry)
@@ -175,12 +159,3 @@ if __name__ == '__main__':
         else:
             int_part, decimal_part = add(number1, number2)
         print(int_part + '.' + decimal_part)
-#------------------------ não mandar essa parte
-
-sys.stdout = orig_stdout
-f.close()
-
-sys.stdin = orig_stdin
-fi.close
-
-#------------------------

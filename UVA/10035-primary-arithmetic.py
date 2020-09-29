@@ -1,18 +1,3 @@
-import sys
-
-
-#------------------------ não mandar essa parte
-""""""
-orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f
-
-orig_stdin = sys.stdin
-fi = open('in.txt', 'r')
-sys.stdin = fi
-
-#------------------------           
-
 def get_carry_operations(first, second):
     first = first[::-1]
     second = second[::-1]
@@ -54,13 +39,3 @@ if __name__ == '__main__':
             print('1 carry operation.')
         else:
             print(carries, 'carry operations.')
-
-#------------------------ não mandar essa parte
-""""""
-sys.stdout = orig_stdout
-f.close()
-
-sys.stdin = orig_stdin
-fi.close
-
-#------------------------

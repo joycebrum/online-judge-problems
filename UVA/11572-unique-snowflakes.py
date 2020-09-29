@@ -1,17 +1,3 @@
-import sys
-
-
-#------------------------ não mandar essa parte
-#https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=27&page=show_problem&problem=2619
-"""orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f
-orig_stdin = sys.stdin
-fi = open('in.txt', 'r')
-sys.stdin = fi"""
-#------------------------
-
-
 def max_unique_subsequence(snowflakes, last_index):
     answer = 0
     i = 0
@@ -35,12 +21,3 @@ if __name__ == '__main__':
             last_index[snowflake] = -1
         maximum = max_unique_subsequence(snowflakes, last_index)
         print(maximum)
-        
-
-#------------------------ não mandar essa parte      
-"""sys.stdout = orig_stdout
-f.close()
-
-sys.stdin = orig_stdin
-fi.close"""
-#------------------------

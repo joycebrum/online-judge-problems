@@ -1,21 +1,3 @@
-import sys
-
-
-#------------------------ não mandar essa parte
-# https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=24&page=show_problem&problem=342
-"""
-orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f
-"""
-
-orig_stdin = sys.stdin
-fi = open('in.txt', 'r')
-sys.stdin = fi
-
-
-#------------------------
-
 class Nodo:
     """Esta classe representa um nodo de uma lista encadeada."""
     def __init__(self, data=-1, before=None, after=None):
@@ -66,15 +48,3 @@ if __name__ == '__main__':
         compare_words(last, current, order)
         last = current
     print_ordered_letters(order)
-        
-            
-
-#------------------------ não mandar essa parte
-"""        
-sys.stdout = orig_stdout
-f.close()
-"""
-sys.stdin = orig_stdin
-fi.close
-
-#------------------------
