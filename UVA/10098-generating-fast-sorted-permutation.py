@@ -1,52 +1,46 @@
-import sys
-from datetime import datetime
-#------------------------ não mandar essa parte
+def get_min_greater_than(array, letter):
+    value = max(array)
+    for c in array:
+        if c > letter and c < value:
+            value = c
+    return value
 
-orig_stdout = sys.stdout
-f = open('out.txt', 'w')
-sys.stdout = f
-"""
-orig_stdin = sys.stdin
-fi = open('in.txt', 'r')
-sys.stdin = fi
-"""
-#------------------------
-choosed = []
+def get_next_permutation(letters):
+    i = len(letters) - 1
+    removed = []
+    while i >= 0:
+        if not removed:
+            removed.append(letters.pop())
+            i -= 1
+            continue
 
-def deep_recursion(n, perm, string):
-    if n >= len(string):
-        print(perm)
-        return 
-    for c in string:
-        if not choosed[c]:
-            choosed[c] = True
-            deep_recursion(n+1, perm + c, string)
-            choosed[c] = False
+        if max(removed) > letters[i]:
+            letter = letters.pop()
+            next_l = get_min_greater_than(removed, letter)
+            
+            removed.remove(next_l)
+            letters.append(next_l)
+            removed.append(letter)
+            
+            rest = sorted(removed)
+            return letters + rest
+        removed.append(letters.pop())
+        i -= 1
+    return None
 
-def generate_and_print_permutations(string):
-    global choosed
-    choosed = {}
-    for c in string:
-        choosed[c] = False
-    deep_recursion(0, '', string)
+def generate_and_print_permutations(letters):
+    print("".join(letters))
+    while True:
+        letters = get_next_permutation(letters)
+        if  not letters:
+            break
+        print("".join(letters))
+        
     
 if __name__ == '__main__':
     n = int(input().strip())
     for i in range(0, n):
-        #init = datetime.now()
-        string = input().strip()
+        string = sorted(input().strip())
         generate_and_print_permutations(string)
         print('')
-        #now = datetime.now()
-        #print('time =', (now-init))
         
-#------------------------ não mandar essa parte
-
-sys.stdout = orig_stdout
-f.close()
-
-"""
-sys.stdin = orig_stdin
-fi.close
-"""
-#------------------------
