@@ -13,7 +13,12 @@ sys.stdin = fi
 #------------------------
 
 if __name__ == '__main__':
-    n = int(input().strip())
+    n = int(input().strip()) #se nao tiver que ler EOF
+    try:
+        entry = sys.stdin.readline().strip()
+        if not entry: break
+    except EOFError:
+        break
         
 #------------------------ não mandar essa parte
 
