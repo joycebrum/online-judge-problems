@@ -8,40 +8,60 @@
 
 using namespace std;
 
-int latency[20010];
-int n, m;
+long long latency[20010];
+long long n, m;
 vector< vector<pair_ii> > adj;
 
-void dijkstra(int s)
-{
-    for(int i = 0; i < n; i++) latency[i] = inf;
+void bellman_ford(int s) {
+	for(int vertice = 0; vertice < n; vertice++) {
+		latency[vertice] = inf;
+	}
+
     latency[s] = 0;
-    priority_queue<pair_ii, vector<pair_ii>, greater<pair_ii> > not_processed;
-    not_processed.push( pair_ii(latency[s], s) );
-    while(!not_processed.empty()){
-		pair_ii p;
-		int t, u;
-        p = not_processed.top();
-        not_processed.pop();
-        t = p.first; u = p.second;
-        
-        if(t > latency[u] ) continue;
-        for(unsigned int i = 0; i < adj[u].size(); i++){
-            if(latency[adj[u][i].first] > latency[u] + adj[u][i].second){
-                latency[adj[u][i].first] = latency[u] + adj[u][i].second;
-                not_processed.push( pair_ii(latency[adj[u][i].first], adj[u][i].first) );
-            }
-        }
-    }
+    
+    for (int j = 0; j < n; j++) {
+		for(int u = 0; u < n; u++) { //para todos os vertices
+			if (latency[u] == inf) {
+				continue;
+			} 
+			for(unsigned int i = 0; i < adj[u].size(); i++){ //para cada aresta
+				int v = adj[u][i].first;
+				int w = adj[u][i].second;
+				if(latency[v] > latency[u] + w) { //relaxamento
+					latency[v] = latency[u] + w;
+				}
+			}
+		}
+	}
+	
+	//check for negative cycles	
+	for (int j = 0; j < n; j++) {
+		bool update = false;
+		for(int u = 0; u < n; u++) {
+			if(latency[u] == inf) {
+				continue;
+			}
+			for(unsigned int i = 0; i < adj[u].size(); i++) { 
+				int v = adj[u][i].first;
+				int w = adj[u][i].second;
+				if(latency[v] > latency[u] + w) {
+					latency[v] = -inf;
+					update = true;
+				}
+			}
+		}
+		if(not update) break;
+	}
 }
 
 int main()
 {
-	int q, t;
-	int teste = 0;
+	long long q, t;
+	long long teste = 0;
     while(cin >> n) {
 		teste += 1;
 		int busyness[n+1];
+		adj.clear();
 		for(int i = 0; i < n; i++) {
 			cin >> busyness[i];
 			vector<pair_ii> vec;
@@ -49,16 +69,17 @@ int main()
 		} 
 		cin >> m;
 		for(int i = 0; i < m; i++) {
-			int x, y;
-			cin >> x >> y;
-			adj[x-1].push_back(pair_ii(y-1, pow(busyness[y-1]-busyness[x-1], 3)));
+			int from, to;
+			cin >> from >> to;
+			adj[from-1].push_back(pair_ii(to-1, pow(busyness[to-1]-busyness[from-1], 3)));
 		}
 		cin >> q;
-		dijkstra(0);
+		
+		bellman_ford(0);
 		cout << "Set #" << teste << endl;
 		for(int i = 0; i < q; i++) {
 			cin >> t;
-			if (latency[t-1] < 3) {
+			if (latency[t-1] < 3 || latency[t-1] >= inf) {
 				cout << "?" << endl;
 			}
 			else {
